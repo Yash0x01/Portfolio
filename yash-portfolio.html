@@ -358,15 +358,32 @@
   .achieve-card p { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
 
   /* ── PROJECT ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
   .project-card {
     background: var(--surface); border: 0.5px solid var(--border);
     border-radius: 8px; padding: 1.75rem; transition: border-color 0.2s;
+    display: flex; flex-direction: column;
   }
   .project-card:hover { border-color: var(--border-bright); }
   .project-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.75rem; }
   .project-title { font-size: 1rem; font-weight: 600; color: var(--green); }
+  .project-title a { color: var(--green); text-decoration: none; transition: opacity 0.2s; }
+  .project-title a:hover { opacity: 0.75; }
   .project-year { font-family: var(--mono); font-size: 10px; color: var(--muted); }
-  .project-desc { font-size: 13.5px; color: var(--muted); line-height: 1.7; margin-bottom: 0.875rem; }
+  .project-desc { font-size: 13.5px; color: var(--muted); line-height: 1.7; margin-bottom: 0.875rem; flex: 1; }
+  .project-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+  .project-gh-link {
+    font-family: var(--mono); font-size: 10px; color: var(--muted);
+    text-decoration: none; letter-spacing: 0.05em;
+    display: flex; align-items: center; gap: 5px;
+    transition: color 0.2s;
+  }
+  .project-gh-link:hover { color: var(--green); }
+  .project-gh-link svg { width: 13px; height: 13px; fill: currentColor; }
 
   /* ── CONTACT ── */
   .contact-links {
@@ -454,6 +471,7 @@
       </div>
     </div>
     <a href="#contact">contact</a>
+    <a href="https://github.com/Yash0x01" target="_blank" rel="noopener" style="border:0.5px solid var(--border-bright);padding:4px 12px;border-radius:4px;">GitHub ↗</a>
   </div>
   <button class="nav-ham" id="hamBtn" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -499,6 +517,7 @@
         <div class="hero-cta">
           <a class="btn btn-primary" href="mailto:yaswanthkumarkoppanathi01@gmail.com">Get in touch</a>
           <a class="btn btn-outline" href="https://www.linkedin.com/in/yaswanthkumar" target="_blank">LinkedIn ↗</a>
+          <a class="btn btn-outline" href="https://github.com/Yash0x01" target="_blank">GitHub ↗</a>
         </div>
       </div>
       <div class="hero-right">
@@ -765,21 +784,71 @@
 
 <hr class="section-div">
 
-<!-- PROJECT -->
+<!-- PROJECTS -->
 <section id="projects">
   <div class="section-inner">
     <div class="section-label">// 05 · projects</div>
     <h2 class="section-title">Projects</h2>
-    <div class="project-card">
-      <div class="project-header">
-        <div class="project-title">CipherSec</div>
-        <div class="project-year">Jul 2024</div>
+    <div class="projects-grid">
+
+      <!-- CipherSec -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title"><a href="https://github.com/Yash0x01/CipherSec" target="_blank" rel="noopener">CipherSec ↗</a></div>
+          <div class="project-year">Jul 2024</div>
+        </div>
+        <p class="project-desc">A Python-based CLI encryption and decryption tool supporting Caesar, Atbash, and Vigenère ciphers. Built with classical cryptography principles and secure input handling — demonstrates applied programming for security tooling and automation.</p>
+        <div class="project-footer">
+          <div class="skill-tags">
+            <span class="tag">Python</span><span class="tag">CLI</span>
+            <span class="tag">Cryptography</span>
+          </div>
+          <a class="project-gh-link" href="https://github.com/Yash0x01/CipherSec" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            github
+          </a>
+        </div>
       </div>
-      <p class="project-desc">A Python-based CLI encryption and decryption tool supporting Caesar, Atbash, and Vigenère ciphers. Built with classical cryptography principles and secure input handling, demonstrating applied programming skills for security tooling and automation.</p>
-      <div class="skill-tags">
-        <span class="tag">Python</span><span class="tag">CLI</span>
-        <span class="tag">Cryptography</span><span class="tag">Security Tooling</span>
+
+      <!-- JWT-Security-Analyzer -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title"><a href="https://github.com/Yash0x01/JWT-Security-Analyzer" target="_blank" rel="noopener">JWT-Security-Analyzer ↗</a></div>
+          <div class="project-year">2025</div>
+        </div>
+        <p class="project-desc">A CLI security tool that analyzes JWTs for vulnerabilities including weak signatures, alg:none abuse, missing expiration, sensitive payload exposure, and header injection. Provides risk scores and remediation guidance. Includes CI action for HIGH-risk token detection.</p>
+        <div class="project-footer">
+          <div class="skill-tags">
+            <span class="tag">Python</span><span class="tag">JWT</span>
+            <span class="tag">OWASP</span><span class="tag">CLI</span>
+            <span class="tag">AppSec</span>
+          </div>
+          <a class="project-gh-link" href="https://github.com/Yash0x01/JWT-Security-Analyzer" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            github
+          </a>
+        </div>
       </div>
+
+      <!-- Recon-Scraper -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-title"><a href="https://github.com/Yash0x01/Recon-Scraper" target="_blank" rel="noopener">Recon-Scraper ↗</a></div>
+          <div class="project-year">2025</div>
+        </div>
+        <p class="project-desc">A Python-based web reconnaissance tool for security testing that crawls websites to discover URLs, JavaScript files, API endpoints, forms, parameters, and emails. Identifies potential security issues and generates structured JSON and HTML reports for analysis.</p>
+        <div class="project-footer">
+          <div class="skill-tags">
+            <span class="tag">Python</span><span class="tag">OSINT</span>
+            <span class="tag">Recon</span><span class="tag">Bug Bounty</span>
+          </div>
+          <a class="project-gh-link" href="https://github.com/Yash0x01/Recon-Scraper" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            github
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -800,6 +869,10 @@
       <a class="contact-link" href="https://www.linkedin.com/in/yaswanthkumar" target="_blank">
         <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
         linkedin.com/in/yaswanthkumar
+      </a>
+      <a class="contact-link" href="https://github.com/Yash0x01" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+        github.com/Yash0x01
       </a>
     </div>
     <div style="margin-top:2.5rem;">
